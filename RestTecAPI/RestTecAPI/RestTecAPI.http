@@ -1,0 +1,6 @@
+@RestTecAPI_HostAddress = http://localhost:5174
+
+GET {{RestTecAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
