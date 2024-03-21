@@ -21,13 +21,14 @@ namespace App1
         private async void OnLoginClicked(object sender, EventArgs e)
         {
             // Aquí puedes implementar la lógica para iniciar sesión
-            await DisplayAlert("Iniciar Sesión", "Implementa la lógica para iniciar sesión", "OK");
+            await Navigation.PushAsync(new LoginPage());
         }
 
         private async void OnRegisterClicked(object sender, EventArgs e)
         {
-            // Aquí puedes implementar la lógica para el registro
-            await DisplayAlert("Registrarse", "Implementa la lógica para registrarse", "OK");
+            // se abre el login page
+            
+            await Navigation.PushAsync(new RegistroPage());
         }
     }
 }
