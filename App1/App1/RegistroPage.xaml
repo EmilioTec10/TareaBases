@@ -8,7 +8,7 @@
         <Entry Placeholder="Nombre" x:Name="txtNombre" />
         <Entry Placeholder="Apellidos" x:Name="txtApellidos" />
         <Entry Placeholder="Dirección" x:Name="txtDireccion" />
-        <Entry Placeholder="Fecha de Nacimiento" x:Name="txtFechaNacimiento" />
+        <Entry Placeholder="Fecha de Nacimiento (dd/MM/yyyy)" x:Name="txtFechaNacimiento" />
         <Entry Placeholder="Teléfono" x:Name="txtTelefono" />
         <Entry Placeholder="Correo Electrónico" x:Name="txtCorreoElectronico" />
         <Entry Placeholder="Contraseña" IsPassword="True" x:Name="txtContrasena" />

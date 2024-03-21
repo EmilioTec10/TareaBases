@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using System.IO;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace App1
@@ -12,24 +15,56 @@ namespace App1
 
         private async void OnRegisterClicked(object sender, EventArgs e)
         {
-            // Aquí puedes implementar la lógica para guardar la información del usuario
-            // Por ejemplo, puedes crear una instancia de la clase Usuario y asignar los valores de los campos de entrada de texto
+            // Verificar que los campos obligatorios estén completos
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) || string.IsNullOrWhiteSpace(txtContrasena.Text))
+            {
+                await DisplayAlert("Error", "Por favor, complete todos los campos obligatorios.", "OK");
+                return;
+            }
+
+
+            DateTime fechaNacimiento;
+            if (!DateTime.TryParseExact(txtFechaNacimiento.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaNacimiento))
+            {
+                await DisplayAlert("Error", "El formato de fecha de nacimiento es incorrecto. Por favor, utilice el formato dd/MM/yyyy.", "OK");
+                return;
+            }
+
+
+            // Crear una instancia de Usuario con los datos del formulario
             Usuario nuevoUsuario = new Usuario
             {
-                Cedula = txtCedula.Text,
                 Nombre = txtNombre.Text,
-                Apellidos = txtApellidos.Text,
-                Direccion = txtDireccion.Text,
-                // Debes convertir el texto de la fecha de nacimiento a un tipo DateTime
-                FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text),
-                Telefono = txtTelefono.Text,
                 CorreoElectronico = txtCorreoElectronico.Text,
-                Password = txtContrasena.Text
+                Password = txtContrasena.Text,
+                FechaNacimiento = fechaNacimiento,
+                Telefono = txtTelefono.Text,
+                Direccion = txtDireccion.Text
             };
 
-            // Aquí deberías guardar la información del nuevo usuario en tu sistema (por ejemplo, en una base de datos)
-            // Luego, puedes mostrar un mensaje de éxito o navegar a otra página
-            await DisplayAlert("Registrarse", "¡Registro exitoso!", "OK");
+            try
+            {
+                // Serializar el objeto Usuario a JSON
+                string usuarioJson = JsonConvert.SerializeObject(nuevoUsuario);
+
+                // Obtener la ruta del archivo usuarios.json
+                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "usuarios.json");
+
+
+                // Escribir el JSON en el archivo
+                File.WriteAllText(filePath, usuarioJson);
+
+                // Mostrar mensaje de creación exitosa
+                await DisplayAlert("Registrarse", "¡Registro exitoso! Por favor, inicie sesión nuevamente.", "OK");
+
+                // Navegar a la página de inicio de sesión (asumiendo que LoginPage es la página de inicio de sesión)
+                await Navigation.PopAsync(); // Vuelve a la página anterior
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier error al guardar la información del usuario
+                await DisplayAlert("Error", $"Ha ocurrido un error al guardar la información del usuario: {ex.Message}", "OK");
+            }
         }
     }
 }
