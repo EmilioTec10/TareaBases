@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{525FA39F-BF84-4C0F-A442-F81CDED93BA1}</ProjectGuid>
+    <ProjectGuid>{5C56C83F-A54F-46E6-9670-748F55722DE6}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>App2ESTA.Droid</RootNamespace>
-    <AssemblyName>App2ESTA.Android</AssemblyName>
+    <RootNamespace>App1.Droid</RootNamespace>
+    <AssemblyName>App1.Android</AssemblyName>
     <Deterministic>True</Deterministic>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -88,9 +88,9 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App2ESTA\App2ESTA.csproj">
-      <Project>{22E26118-A16A-43E2-9321-33C6B97605DB}</Project>
-      <Name>App2ESTA</Name>
+    <ProjectReference Include="..\App1\App1.csproj">
+      <Project>{37BBCE66-F294-44E3-83FE-6DDC6401E580}</Project>
+      <Name>App1</Name>
     </ProjectReference>
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

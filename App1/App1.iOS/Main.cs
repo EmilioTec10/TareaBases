@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace App2ESTA.iOS
+namespace App1.iOS
 {
     public class Application
     {

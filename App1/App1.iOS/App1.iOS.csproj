@@ -5,13 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AD67DD7C-064B-46B3-9B04-89A3519D29E6}</ProjectGuid>
+    <ProjectGuid>{DF804A9D-7C1E-4983-88BE-27FDD5F3FB52}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>App2ESTA.iOS</RootNamespace>
+    <RootNamespace>App1.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>App2ESTA.iOS</AssemblyName>
+    <AssemblyName>App1.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <ProvisioningType>automatic</ProvisioningType>
@@ -128,9 +128,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\App2ESTA\App2ESTA.csproj">
-      <Project>{22E26118-A16A-43E2-9321-33C6B97605DB}</Project>
-      <Name>App2ESTA</Name>
+    <ProjectReference Include="..\App1\App1.csproj">
+      <Project>{37BBCE66-F294-44E3-83FE-6DDC6401E580}</Project>
+      <Name>App1</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
