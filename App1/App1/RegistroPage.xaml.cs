@@ -58,7 +58,7 @@ namespace App1
                 await DisplayAlert("Registrarse", "¡Registro exitoso! Por favor, inicie sesión nuevamente.", "OK");
 
                 // Navegar a la página de inicio de sesión (asumiendo que LoginPage es la página de inicio de sesión)
-                await Navigation.PopAsync(); // Vuelve a la página anterior
+                await Navigation.PopAsync(); // Vuelve a la página anteriorr
             }
             catch (Exception ex)
             {
