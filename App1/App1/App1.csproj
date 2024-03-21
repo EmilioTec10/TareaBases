@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -18,11 +18,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="RegistroPage.xaml.cs">
       <DependentUpon>RegistroPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ItemMenu.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
     <Compile Update="Usuario.cs">
       <DependentUpon>%(Filename)</DependentUpon>

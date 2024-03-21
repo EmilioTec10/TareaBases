@@ -16,10 +16,17 @@ namespace App1
             string correo = txtCorreo.Text;
             string contrasena = txtContrasena.Text;
 
-            // Realizar la lógica de inicio de sesión aquí (puede variar según tus necesidades)
-            // Por ejemplo, puedes validar las credenciales en una base de datos o archivo
-            // En este ejemplo, simplemente mostraremos un mensaje de alerta
-            await DisplayAlert("Iniciar Sesión", $"Correo: {correo}, Contraseña: {contrasena}", "OK");
+            // Realizar la lógica de inicio de sesión
+            if (correo == "mrr" && contrasena == "2197")
+            {
+                // Si las credenciales son correctas, navegar a la página de menú
+                await Navigation.PushAsync(new MenuPage());
+            }
+            else
+            {
+                // Si las credenciales son incorrectas, mostrar un mensaje de error
+                await DisplayAlert("Error", "Credenciales incorrectas", "OK");
+            }
         }
 
         private async void OnRegisterClicked(object sender, EventArgs e)
