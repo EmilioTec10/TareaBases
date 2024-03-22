@@ -21,6 +21,9 @@
     <Compile Update="FacturaPage.xaml.cs">
       <DependentUpon>FacturaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="EstadoPage.xaml.cs">
+      <DependentUpon>EstadoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
