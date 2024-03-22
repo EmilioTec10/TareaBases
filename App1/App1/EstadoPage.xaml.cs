@@ -9,7 +9,6 @@ namespace App1
         private ObservableCollection<ItemMenu> carrito;
         private DateTime horaDeInicio;
         private double tiempoTotal;
-        private int calificacion = 0; // Declaración de la variable calificacion
 
         public EstadoPage(ObservableCollection<ItemMenu> carrito)
         {
@@ -54,7 +53,12 @@ namespace App1
                         // Mostrar el mensaje de pedido listo
                         pedidoListoLabel.IsVisible = true;
 
-                        
+                        // Iniciar un temporizador para mostrar el botón de feedback después de 30 segundos
+                        Device.StartTimer(TimeSpan.FromSeconds(30), () =>
+                        {
+                            MostrarBotonFeedback();
+                            return false; // Detiene el temporizador después de mostrar el botón
+                        });
 
                         // Detener el temporizador de progreso del plato
                         return false;
@@ -84,7 +88,13 @@ namespace App1
                 {
                     // Mostrar el mensaje de pedido listo
                     pedidoListoLabel.IsVisible = true;
-         
+
+                    // Iniciar un temporizador para mostrar el botón de feedback después de 30 segundos
+                    Device.StartTimer(TimeSpan.FromSeconds(30), () =>
+                    {
+                        MostrarBotonFeedback();
+                        return false; // Detiene el temporizador después de mostrar el botón
+                    });
 
                     // Detener el temporizador de progreso total del pedido
                     return false;
@@ -95,6 +105,23 @@ namespace App1
             });
         }
 
-        
+        private void MostrarBotonFeedback()
+        {
+            Button feedbackButton = new Button
+            {
+                Text = "Feedback",
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            feedbackButton.Clicked += FeedbackButton_Clicked;
+            Content = feedbackButton;
+        }
+
+        private async void FeedbackButton_Clicked(object sender, EventArgs e)
+        {
+            // Abrir la página de Feedback
+            FeedbackPage feedbackPage = new FeedbackPage();
+            await Navigation.PushAsync(feedbackPage);
+        }
     }
 }

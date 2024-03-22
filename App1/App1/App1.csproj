@@ -18,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FeedbackPage.xaml.cs">
+      <DependentUpon>FeedbackPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="FacturaPage.xaml.cs">
       <DependentUpon>FacturaPage.xaml</DependentUpon>
     </Compile>
