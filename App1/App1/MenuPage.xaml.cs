@@ -6,7 +6,6 @@ using Xamarin.Forms;
 
 namespace App1
 {
-
     public partial class MenuPage : ContentPage
     {
         public ObservableCollection<ItemMenu> Platos { get; set; }
@@ -74,8 +73,19 @@ namespace App1
 
             // Limpiar la selección del ListView
             ((ListView)sender).SelectedItem = null;
+        }
 
+        void OnDecreaseClicked(object sender, EventArgs e)
+        {
+            var item = (ItemMenu)((Button)sender).CommandParameter;
+            if (item.Cantidad > 0)
+                item.Cantidad--;
+        }
 
+        void OnIncreaseClicked(object sender, EventArgs e)
+        {
+            var item = (ItemMenu)((Button)sender).CommandParameter;
+            item.Cantidad++;
         }
 
         void OnFinalizarPedidoClicked(object sender, EventArgs e)

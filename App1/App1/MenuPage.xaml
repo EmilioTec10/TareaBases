@@ -42,12 +42,20 @@
             <ListView x:Name="CarritoListView" ItemsSource="{Binding Carrito}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Nombre}" Detail="{Binding Cantidad, StringFormat='Cantidad: {0}'}"/>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Nombre}" HorizontalOptions="StartAndExpand"/>
+                                <Button Text="-" Clicked="OnDecreaseClicked" CommandParameter="{Binding .}" />
+                                <Label Text="{Binding Cantidad}" HorizontalOptions="CenterAndExpand"/>
+                                <Button Text="+" Clicked="OnIncreaseClicked" CommandParameter="{Binding .}" />
+                                <Label Text="{Binding PrecioTotal, StringFormat='Precio Total: {0:C}'}" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Text="Finalizar Pedido" Clicked="OnFinalizarPedidoClicked" HorizontalOptions="CenterAndExpand" Margin="0,30"/>
+            <Button Text="Confirmar Pedido" Clicked="OnFinalizarPedidoClicked" HorizontalOptions="CenterAndExpand" Margin="0,30"/>
         </StackLayout>
     </ContentPage.Content>
 
