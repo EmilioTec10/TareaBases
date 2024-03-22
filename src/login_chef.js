@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
-  const [email, setEmail] = useState('');
+const Login_Chef = ({ setLoggedIn, setEmail }) => {
+  const [email, setEmailInput] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -31,53 +31,31 @@ const Login = () => {
       setPasswordError('The password must be 8 characters or longer');
       isValid = false;
     }
-    if(email == "ema@gmial.com" && password =="123456789"){
-      isValid = true;
-      navigate('/vista_admin');
-    }
-
-    // Si alguna validación falla, detener el proceso y mostrar mensajes de error
-    if (!isValid) {
-      return;
-    }
-
-    //codigo de validacion con json, tiene un error minimo 
-    /*
-    try {
-      // Cargar el archivo JSON local
-      const response = await fetch('/database.json');
-      const jsonData = await response.json();
-
-      // Realizar la validación comparando los datos ingresados por el usuario
-      // con los datos del archivo JSON
-      const isValidUser = jsonData.users.some(user => user.email === email && user.password === password);
-      
-      if (isValidUser) {
-        // Si la validación es exitosa, redirige al usuario a la página de menú
-        navigate('/menu');
+    
+    // Validación de las credenciales del chef
+    if (isValid) {
+      if (email === "chef@gmail.com" && password === "123456789") {
+        setLoggedIn(true);
+        setEmail(email);
+        navigate('/vista_admin');
       } else {
-        // Si la validación falla, muestra un mensaje de error
         setEmailError('Invalid email or password');
         setPassword('');
       }
-    } catch (error) {
-      console.error('Error loading JSON file:', error);
     }
-    */
-
   };
 
   return (
     <div className="mainContainer">
       <div className="titleContainer">
-        <div>Login</div>
+        <div>Login as Chef</div>
       </div>
       <br />
       <div className="inputContainer">
         <input
           value={email}
           placeholder="Enter your email here"
-          onChange={(ev) => setEmail(ev.target.value)}
+          onChange={(ev) => setEmailInput(ev.target.value)}
           className="inputBox"
         />
         <label className="errorLabel">{emailError}</label>
@@ -100,4 +78,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login_Chef;

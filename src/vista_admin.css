@@ -1,0 +1,141 @@
+/* Estilos generales */
+/* En el archivo vista_admin.css */
+
+.adminContainer {
+  text-align: center;
+  padding: 20px;
+}
+
+.adminButton {
+  background-color: #4CAF50; /* Color de fondo */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+  outline: none;
+}
+
+.adminButton:hover {
+  background-color: #45a049; /* Cambia el color de fondo al pasar el mouse */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Fondo gris claro */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos para la barra de navegación */
+  .navbar {
+    background-color: #343a40; /* Navbar color gris oscuro */
+    padding: 10px 0;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Texto blanco */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .navbar ul li a:hover {
+    background-color: #4a4e52; /* Color gris oscuro al pasar el mouse */
+  }
+  
+  /* Estilos para el contenedor principal */
+  .main-container {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  /* Estilos para los botones */
+  .button {
+    background-color: #007bff; /* Azul */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Azul oscuro al pasar el mouse */
+  }
+  
+  /* Estilos para los títulos */
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para las tarjetas de productos */
+  .card {
+    background-color: #f8f9fa; /* Fondo gris claro */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .card-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff; /* Azul */
+  }
+  
+  .card-button {
+    background-color: #007bff; /* Azul */
+    color: #ffffff; /* Texto blanco */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .card-button:hover {
+    background-color: #0056b3; /* Azul oscuro al pasar el mouse */
+  }
+  
