@@ -1,13 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using Xamarin.Forms;
 
 namespace App1
 {
-    public partial class MenuPage : ContentPage
+    public partial class MenuPage : ContentPage, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private double totalAPagar;
+        public double TotalAPagar
+        {
+            get { return totalAPagar; }
+            set
+            {
+                if (totalAPagar != value)
+                {
+                    totalAPagar = value;
+                    OnPropertyChanged(nameof(TotalAPagar));
+                }
+            }
+        }
+
         public ObservableCollection<ItemMenu> Platos { get; set; }
 
         public ObservableCollection<ItemMenu> Carrito { get; set; }
@@ -70,7 +87,7 @@ namespace App1
             if (item.Cantidad > 0)
             {
                 item.Cantidad--;
-                UpdateTotalPrice(item);
+                UpdateTotalPrice();
 
                 if (item.Cantidad == 0)
                 {
@@ -85,16 +102,14 @@ namespace App1
             if (item.Cantidad < 5) // Limitar la cantidad máxima a 5
             {
                 item.Cantidad++;
-                UpdateTotalPrice(item);
+                UpdateTotalPrice();
             }
         }
 
-        void UpdateTotalPrice(ItemMenu item)
+        void UpdateTotalPrice()
         {
-            OnPropertyChanged(nameof(item.PrecioTotal));
+            TotalAPagar = Carrito.Sum(item => item.PrecioTotal);
         }
-
-
 
         void OnFinalizarPedidoClicked(object sender, EventArgs e)
         {
@@ -102,11 +117,16 @@ namespace App1
             // Por ejemplo, enviar el pedido a un servidor, guardar en una base de datos, etc.
             // En este ejemplo, solo mostraremos un mensaje de confirmación
 
-            DisplayAlert("Pedido Finalizado", "¡Gracias por su pedido!", "OK");
+            //DisplayAlert("Pedido Finalizado", "¡Gracias por su pedido!", "OK");
+            // Navegar a la página del carrito después de finalizar el pedido
+            Navigation.PushAsync(new CarritoPage(Carrito));
             // Limpiar el carrito después de finalizar el pedido
-            Carrito.Clear();
+            //Carrito.Clear();
         }
 
-        
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
