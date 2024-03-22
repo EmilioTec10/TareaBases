@@ -57,5 +57,13 @@ namespace App1
             double total = carrito.Sum(item => item.PrecioTotal);
             TotalAPagarLabel.Text = $"Total a Pagar: {total:C}";
         }
+
+        void OnConfirmarPedidoClicked(object sender, EventArgs e)
+        {
+            // Crear una nueva instancia de la página para generar el pedido
+            FacturaPage facturaPage = new FacturaPage(carrito, carrito.Sum(item => item.PrecioTotal));
+            Navigation.PushAsync(facturaPage);
+        }
+
     }
 }

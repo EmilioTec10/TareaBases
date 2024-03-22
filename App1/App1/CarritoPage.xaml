@@ -14,11 +14,11 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="{Binding Nombre}" HorizontalOptions="StartAndExpand"/>
-                                <Button Text="-" Clicked="OnDecreaseClicked" CommandParameter="{Binding .}" />
+                                <Button Text="-" Clicked="OnDecreaseClicked" CommandParameter="{Binding .}" FontSize="Small" />
                                 <Label Text="{Binding Cantidad}" HorizontalOptions="CenterAndExpand"/>
-                                <Button Text="+" Clicked="OnIncreaseClicked" CommandParameter="{Binding .}" />
-                                <Label Text="{Binding PrecioTotal, StringFormat='Precio Total: {0:C}'}" HorizontalOptions="EndAndExpand"/>
-                                <Button Text="Eliminar" Clicked="OnDeleteClicked" CommandParameter="{Binding .}" />
+                                <Button Text="+" Clicked="OnIncreaseClicked" CommandParameter="{Binding .}" FontSize="Small" />
+                                <Label Text="{Binding PrecioTotal, StringFormat='Precio: {0:C}'}" HorizontalOptions="EndAndExpand"/>
+                                <Button Text="Eliminar" Clicked="OnDeleteClicked" CommandParameter="{Binding .}" FontSize="Small" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -27,7 +27,14 @@
 
             <!-- Mostrar el monto total a pagar -->
             <Label x:Name="TotalAPagarLabel" FontSize="Large" HorizontalOptions="Center" Margin="0,20,0,10"/>
+
+
+            <Button Text="Confirmar Pedido" Clicked="OnConfirmarPedidoClicked" HorizontalOptions="CenterAndExpand"/>
+
+            
+            
         </StackLayout>
     </ContentPage.Content>
+    
 
 </ContentPage>
