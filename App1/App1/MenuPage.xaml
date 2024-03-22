@@ -17,26 +17,6 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <!-- Bebidas -->
-            <Label Text="Bebidas" FontSize="Medium" Margin="10,20,0,5"/>
-            <ListView x:Name="BebidasListView" ItemSelected="OnItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Nombre}" Detail="{Binding Precio, StringFormat='Precio: {0:C}'}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <!-- Ensaladas -->
-            <Label Text="Ensaladas" FontSize="Medium" Margin="10,20,0,5"/>
-            <ListView x:Name="EnsaladasListView" ItemSelected="OnItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Nombre}" Detail="{Binding Precio, StringFormat='Precio: {0:C}'}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
             <!-- Carrito de compras -->
             <Label Text="Carrito de Compras" FontSize="Large" HorizontalOptions="Center" Margin="0,30,0,10"/>
             <ListView x:Name="CarritoListView" ItemsSource="{Binding Carrito}">
@@ -48,7 +28,7 @@
                                 <Button Text="-" Clicked="OnDecreaseClicked" CommandParameter="{Binding .}" />
                                 <Label Text="{Binding Cantidad}" HorizontalOptions="CenterAndExpand"/>
                                 <Button Text="+" Clicked="OnIncreaseClicked" CommandParameter="{Binding .}" />
-                                <Label Text="{Binding PrecioTotal, StringFormat='Precio Total: {0:C}'}" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="{Binding PrecioTotal, StringFormat='Precio: {0:C}'}" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

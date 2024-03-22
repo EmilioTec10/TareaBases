@@ -9,8 +9,7 @@ namespace App1
     public partial class MenuPage : ContentPage
     {
         public ObservableCollection<ItemMenu> Platos { get; set; }
-        public ObservableCollection<ItemMenu> Bebidas { get; set; }
-        public ObservableCollection<ItemMenu> Ensaladas { get; set; }
+
         public ObservableCollection<ItemMenu> Carrito { get; set; }
 
         public MenuPage()
@@ -28,25 +27,15 @@ namespace App1
             {
                 new ItemMenu { Nombre = "Plato 1", Precio = 10.99 },
                 new ItemMenu { Nombre = "Plato 2", Precio = 12.50 },
-                new ItemMenu { Nombre = "Plato 3", Precio = 9.75 }
-            };
-
-            Bebidas = new ObservableCollection<ItemMenu>
-            {
+                new ItemMenu { Nombre = "Plato 3", Precio = 9.75 },
                 new ItemMenu { Nombre = "Bebida 1", Precio = 2.99 },
-                new ItemMenu { Nombre = "Bebida 2", Precio = 3.50 }
-            };
-
-            Ensaladas = new ObservableCollection<ItemMenu>
-            {
+                new ItemMenu { Nombre = "Bebida 2", Precio = 3.50 },
                 new ItemMenu { Nombre = "Ensalada 1", Precio = 7.99 },
                 new ItemMenu { Nombre = "Ensalada 2", Precio = 6.50 }
             };
 
             // Asignar las listas al ListView
             PlatosListView.ItemsSource = Platos;
-            BebidasListView.ItemsSource = Bebidas;
-            EnsaladasListView.ItemsSource = Ensaladas;
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -79,14 +68,33 @@ namespace App1
         {
             var item = (ItemMenu)((Button)sender).CommandParameter;
             if (item.Cantidad > 0)
+            {
                 item.Cantidad--;
+                UpdateTotalPrice(item);
+
+                if (item.Cantidad == 0)
+                {
+                    Carrito.Remove(item);
+                }
+            }
         }
 
         void OnIncreaseClicked(object sender, EventArgs e)
         {
             var item = (ItemMenu)((Button)sender).CommandParameter;
-            item.Cantidad++;
+            if (item.Cantidad < 5) // Limitar la cantidad máxima a 5
+            {
+                item.Cantidad++;
+                UpdateTotalPrice(item);
+            }
         }
+
+        void UpdateTotalPrice(ItemMenu item)
+        {
+            OnPropertyChanged(nameof(item.PrecioTotal));
+        }
+
+
 
         void OnFinalizarPedidoClicked(object sender, EventArgs e)
         {
@@ -98,5 +106,7 @@ namespace App1
             // Limpiar el carrito después de finalizar el pedido
             Carrito.Clear();
         }
+
+        
     }
 }
