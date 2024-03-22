@@ -37,7 +37,7 @@ const Login_Chef = ({ setLoggedIn, setEmail }) => {
       if (email === "chef@gmail.com" && password === "123456789") {
         setLoggedIn(true);
         setEmail(email);
-        navigate('/vista_admin');
+        navigate('/vista_chef');
       } else {
         setEmailError('Invalid email or password');
         setPassword('');

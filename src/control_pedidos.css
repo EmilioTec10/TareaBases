@@ -1,0 +1,43 @@
+.chefOrdersContainer {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .divider {
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  .orderDetails {
+    margin-top: 20px;
+  }
+  
+  .orderInfo span {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .progressBar {
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+  }
+  
+  .progressText {
+    text-align: center;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,45 @@
+/* ordenes_chef.css */
+
+.chefOrdersContainer {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ordersList {
+  margin-top: 20px;
+}
+
+.orderItem {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+.orderItem:hover {
+  background-color: #f0f0f0;
+}
+
+.orderItem span {
+  margin-right: 10px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.label {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #4caf50;
+}
