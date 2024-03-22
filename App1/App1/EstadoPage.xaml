@@ -7,7 +7,8 @@
         <StackLayout Padding="10">
             <Label Text="Estado del Pedido" FontSize="Large" HorizontalOptions="Center" Margin="0,20,0,10"/>
             <StackLayout x:Name="listaPlatos" Margin="0,10"/>
-            <ProgressBar x:Name="progresoPedido" ProgressColor="Green" Margin="0,20,0,10"/>
+            <Label Text="Progreso total del pedido" HorizontalOptions="Center" Margin="0,10"/>
+            <ProgressBar x:Name="progresoPedido" ProgressColor="Green" Margin="0,5,0,10"/>
             <Label x:Name="pedidoListoLabel" Text="¡Tu pedido está listo!" FontSize="Large" HorizontalOptions="Center" Margin="0,10" IsVisible="False"/>
         </StackLayout>
     </ContentPage.Content>

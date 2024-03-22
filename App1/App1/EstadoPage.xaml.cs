@@ -9,6 +9,7 @@ namespace App1
         private ObservableCollection<ItemMenu> carrito;
         private DateTime horaDeInicio;
         private double tiempoTotal;
+        private int calificacion = 0; // Declaración de la variable calificacion
 
         public EstadoPage(ObservableCollection<ItemMenu> carrito)
         {
@@ -53,7 +54,9 @@ namespace App1
                         // Mostrar el mensaje de pedido listo
                         pedidoListoLabel.IsVisible = true;
 
-                        // Detener el temporizador
+                        
+
+                        // Detener el temporizador de progreso del plato
                         return false;
                     }
 
@@ -81,8 +84,9 @@ namespace App1
                 {
                     // Mostrar el mensaje de pedido listo
                     pedidoListoLabel.IsVisible = true;
+         
 
-                    // Detener el temporizador
+                    // Detener el temporizador de progreso total del pedido
                     return false;
                 }
 
@@ -90,5 +94,7 @@ namespace App1
                 return true;
             });
         }
+
+        
     }
 }
