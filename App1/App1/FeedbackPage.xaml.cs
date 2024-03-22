@@ -8,13 +8,23 @@ namespace App1
         public FeedbackPage()
         {
             InitializeComponent();
+
+            // Agregar opciones al Picker
+            calificacionPicker.Items.Add("1");
+            calificacionPicker.Items.Add("2");
+            calificacionPicker.Items.Add("3");
+            calificacionPicker.Items.Add("4");
+            calificacionPicker.Items.Add("5");
         }
 
         private async void EnviarFeedbackClicked(object sender, EventArgs e)
         {
-            if (!int.TryParse(calificacionEntry.Text, out int calificacion) || calificacion < 1 || calificacion > 5)
+            // Obtener la calificación seleccionada del Picker
+            string calificacion = calificacionPicker.SelectedItem as string;
+
+            if (string.IsNullOrWhiteSpace(calificacion))
             {
-                await DisplayAlert("Error", "Por favor, ingresa una calificación válida (1-5).", "OK");
+                await DisplayAlert("Error", "Por favor, selecciona una calificación.", "OK");
                 return;
             }
 
@@ -36,7 +46,7 @@ namespace App1
         {
             public string Usuario { get; set; }
             public DateTime Fecha { get; set; }
-            public int Calificacion { get; set; }
+            public string Calificacion { get; set; } // Cambiar el tipo de int a string
         }
     }
 }
