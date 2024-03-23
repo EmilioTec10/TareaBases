@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.RegistroPage">
+
+    <StackLayout Padding="20">
+        <Entry Placeholder="Cédula" x:Name="txtCedula" />
+        <Entry Placeholder="Nombre" x:Name="txtNombre" />
+        <Entry Placeholder="Apellidos" x:Name="txtApellidos" />
+        <Entry Placeholder="Dirección" x:Name="txtDireccion" />
+        <Entry Placeholder="Fecha de Nacimiento (dd/MM/yyyy)" x:Name="txtFechaNacimiento" />
+        <Entry Placeholder="Teléfono" x:Name="txtTelefono" />
+        <Entry Placeholder="Correo Electrónico" x:Name="txtCorreoElectronico" />
+        <Entry Placeholder="Contraseña" IsPassword="True" x:Name="txtContrasena" />
+        <Button Text="Registrarse" Clicked="OnRegisterClicked" />
+    </StackLayout>
+
+</ContentPage>

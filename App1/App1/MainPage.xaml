@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Iniciar Sesión o Registrarse" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Restec en tus Manos" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Inicie sesión o cree una cuenta para empezar a hacer sus pedidos online desde su celular!" FontSize="16" Padding="30,0,30,0"/>
+
+        <!-- Botón para iniciar sesión -->
+        <Button Text="Iniciar Sesión" Clicked="OnLoginClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0,20"/>
+
+        <!-- Botón para registrarse -->
+        <Button Text="Registrarse" Clicked="OnRegisterClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0,20"/>
+    </StackLayout>
+
+</ContentPage>

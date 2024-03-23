@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.MenuPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Menú" FontSize="Large" HorizontalOptions="Center" Margin="0,20,0,10"/>
+
+            <!-- Platos -->
+            <Label Text="Platos" FontSize="Medium" Margin="10,0,0,5"/>
+            <ListView x:Name="PlatosListView" ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nombre}" Detail="{Binding Precio, StringFormat='Precio: {0:C}'}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Carrito de compras -->
+            <Label Text="Carrito de Compras" FontSize="Large" HorizontalOptions="Center" Margin="0,30,0,10"/>
+            <ListView x:Name="CarritoListView" ItemsSource="{Binding Carrito}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Nombre}" HorizontalOptions="StartAndExpand"/>
+                                <Button Text="-" Clicked="OnDecreaseClicked" CommandParameter="{Binding .}" />
+                                <Label Text="{Binding Cantidad}" HorizontalOptions="CenterAndExpand"/>
+                                <Button Text="+" Clicked="OnIncreaseClicked" CommandParameter="{Binding .}" />
+                                <Label Text="{Binding PrecioTotal, StringFormat='Precio: {0:C}'}" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Confirmar Pedido" Clicked="OnFinalizarPedidoClicked" HorizontalOptions="CenterAndExpand" Margin="0,30"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
