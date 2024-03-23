@@ -85,7 +85,7 @@
 
         public void add_plate_to_menu(Plate plate, int price, int calories, string type)
         {
-            menu.plates.AddLast(plate);
+            Menu.plates.AddLast(plate);
             plate.price = price;
             plate.calories = calories; 
             plate.type = type;
