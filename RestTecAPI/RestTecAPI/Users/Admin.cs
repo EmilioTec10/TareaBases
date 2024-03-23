@@ -2,24 +2,66 @@
 {
     public class Admin : Person
     {
-        private LinkedList<Plate> plates { get; set;}
+        public LinkedList<Plate> plates { get; set;}
 
         public Menu menu { get; set; }
 
-        const string data_base = "C:\\Users\\manue\\Escritorio\\TareaBases\\RestTecAPI\\RestTecAPI\\Users\\Users.txt";
+        const string data_base = "C:\\Users\\manue\\Escritorio\\RestTec-TareaCorta\\RestTecAPI\\RestTecAPI\\DataBases\\Users.txt";
 
         public void register(string email, string password)
         {
             using (StreamWriter writer = new StreamWriter(data_base))
             {
-                writer.WriteLine($"{email}, {password}, admin");
+                writer.WriteLine($"{email},{password},admin");
             }
+        }
+
+        public bool login(string email, string password)
+        {
+            bool isAdmin = false;
+
+            using (StreamReader reader = new StreamReader(data_base))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+
+                    // Verificar si el correo electrónico y la contraseña coinciden
+                    if (parts.Length == 3 && parts[0] == email && parts[1] == password)
+                    {
+                        // Verificar si el último campo es "admin"
+                        if (parts[2].Trim().ToLower() == "admin")
+                        {
+                            isAdmin = true;
+                        }
+                        // Se encontró una coincidencia, puedes salir del bucle
+                        break;
+                    }
+                }
+            }
+
+            return isAdmin;
         }
 
         public void create_plate(string name, string description)
         {
-            Plate plate = new Plate();
+            Plate plate = new Plate(name, description);
             plates.AddLast(plate);
+        }
+
+        public Plate GetPlateAtIndex(LinkedList<Plate> plates, int index)
+        {
+            int currentIndex = 0;
+            foreach (Plate plate in plates)
+            {
+                if (currentIndex == index)
+                {
+                    return plate;
+                }
+                currentIndex++;
+            }
+            return null; 
         }
         public void update_plate_name (Plate plate, string new_plate_name)
         {
